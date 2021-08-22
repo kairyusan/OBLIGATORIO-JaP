@@ -139,3 +139,14 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+
+.card-group{
+  
+  width: 400px; 
+  display:inline-flex
+}
+
+.card-number{
+  font-weight: bold;
+}
