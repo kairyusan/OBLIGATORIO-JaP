@@ -1,110 +1,51 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <!--Bootsrap 4 CDN-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-  <!--Fontawesome CDN-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-  <!--Custom styles-->
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-
-    .card-header {
-      background-color: #4682B4;
-
-    }
-
-    .card-footer {
-      background-color: #FFFAFA;
-    }
-    
-    
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-Mercado - Inicia sesión</title>
+  <link href="css/login.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+  <script src="js/login.js"></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="425220375774-4iskf317vlvqga217o4dpl4fgro7o8lj.apps.googleusercontent.com" >
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
-<body class="text-center">
-  <div class="cabezal_inicio"><img src="img/login.png" href="inicio.html"></div>
-  <br>
+<body>
+<div><img class="entrada" src="img/login.png"></div>
   <div class="container">
-    <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
-          <h3 style="font-weight: bold;">Inicia sesión</h3>
-          <div class="d-flex justify-content-end social_icon">
-          </div>
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+    <div class="row">
+      
+      <div class="col-md-6">
+        
+      <form onsubmit="event.preventDefault()" class="box">
+            <h1>Incia sesión</h1>
+            <p class="text-muted"> Por favor ingresa usuario y contraseña</p> <input type="text" id="user" name=""
+              placeholder="Username"> <input type="password" id="pass" name="" placeholder="Password"> 
+              <a class="forgot text-muted" onclick="laproximasale()">¿Olvidaste tu contraseña?</a> 
+              <input type="submit" onclick="ingreso(user.value,pass.value)" name="" value="Entra"
+              href="#">
+            <div class="col-md-12">
+              <ul class="social-network social-circle">
+                <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></li> 
+                
+      
               </div>
-              <input type="text" class="form-control" placeholder="usuario" id="user">
-
+              </ul>
             </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
-              <input type="password" class="form-control" placeholder="contraseña" id="pass">
-            </div>
-            <div class="row align-items-center remember">
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gracias por tu preferencia</p>
-            </div>
-            <div class="card-footer">
-              <div class="d-flex justify-content-center">
-              <button onclick="ingreso(user.value,pass.value);">Entrar</button>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-            <div class="d-flex justify-content-center">
-            <button onclick="laproximasale()">¿Olvidaste tu contraseña?</button>
-          </div>
-        </div>
-      </div>
+          </form>
+          
+  
+   
     </div>
-  </div>
 
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
+  <footer>
+  </footer>
+
 </body>
 
 </html>

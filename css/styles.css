@@ -140,13 +140,17 @@ a.custom-card:hover {
   color: orange;
 }
 
-
-.card-group{
-  
-  width: 400px; 
-  display:inline-flex
+.homura {
+display: flex;
+flex-wrap: wrap;
+margin-left: 50px;
 }
 
-.card-number{
+.card {
+  width: 300px;
+  margin-right: 20px;
+}
+
+h5 {
   font-weight: bold;
 }
