@@ -38,7 +38,7 @@ function sortProducts(criteria, array) {
 
 
 
-function showProductsList() {
+function showProductsList(currentProductsArray) {
 
   let htmlContentToAppend = "";
   for (let i = 0; i < currentProductsArray.length; i++) {
@@ -88,15 +88,30 @@ function sortAndShowProducts(sortCriteria, productsArray){
   currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
   //Muestro las categorías ordenadas
-  showProductsList();
+  showProductsList(currentProductsArray);
 }
+
+var filt=[];
+
+  function filtrado() {
+    var tex=document.getElementById("sagashisa").value;
+    var filt = currentProductsArray.filter(function(productos){
+      return productos.name.toLowerCase().indexOf(tex.toLowerCase()) > -1;
+    })
+    showProductsList(filt);
+  }
+
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
   getJSONData(PRODUCTS_URL).then(function (resultObj) {
     if (resultObj.status === "ok") {
       currentProductsArray = resultObj.data;
-      sortAndShowProducts(ORDER_ASC_BY_PREC, resultObj.data);;
+      sortAndShowProducts(ORDER_ASC_BY_PREC, resultObj.data);      
     }
+  });
+  document.getElementById("sagashisa").addEventListener('keyup', (event) =>{
+    filtrado();
   });
 });
 
@@ -119,7 +134,7 @@ document.getElementById("clearRangeFilterCost").addEventListener("click", functi
   minPrec = undefined;
   maxPrec = undefined;
 
-  showProductsList();
+  showProductsList(currentProductsArray);
 });
 
 document.getElementById("rangeFilterCost").addEventListener("click", function(){
@@ -142,7 +157,7 @@ document.getElementById("rangeFilterCost").addEventListener("click", function(){
       maxPrec = undefined;
   }
 
-  showProductsList();
+  showProductsList(currentProductsArray);
 });
 
 
