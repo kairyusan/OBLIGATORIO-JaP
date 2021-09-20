@@ -51,9 +51,9 @@ function showProductsList(currentProductsArray) {
       htmlContentToAppend +=
 
         ` <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="${Prod.imgSrc}">
+                <img class="card-img-top" src="${Prod.imgSrc}" onclick="aInfo()">
                 <div class="card-body">
-                  <h5 class="card-number">${Prod.name}</h5>
+                  <h5 class="card-number" onclick="aInfo()">${Prod.name}</h5>
                   <p class="card-text">${Prod.description}</p>
                   <div> <h5>${Prod.cost} USD  </h5>
                   <p>${Prod.soldCount} Vendidos </p>
@@ -161,4 +161,6 @@ document.getElementById("rangeFilterCost").addEventListener("click", function(){
 });
 
 
-
+function aInfo(){
+  location.href = "product-info.html";
+}

@@ -13,6 +13,13 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/productStyles.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+
 </head>
 
 <body>
@@ -23,27 +30,107 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="welcome" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="welcome" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item py-2 d-none d-md-inline-block" href="my-profile.html"> Mi perfil</a>
           <a class="dropdown-item py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item py-2 d-none d-md-inline-block" href="index.html" onclick="desconectate();">Cerrar Sesión</a>
+          <a class="dropdown-item py-2 d-none d-md-inline-block" href="index.html" onclick="desconectate();">Cerrar
+            Sesión</a>
           <a class="dropdown-item py-2 d-none d-md-inline-block" href="#" onclick="signOut();">Sign out google</a>
         </div>
       </div>
     </div>
   </nav>
 
-  
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <!-- CONTENEDOR DE INFORMACIÓN -->
+  <div class="homura">
+    <h2 id="namae"></h2>
+    <p id="deskuripushon"></p>
+    <h2 id="kau"></h2>
+    </hr>
+  </div>
+
+
+
+  <!-- GALERIA DE IMÁGENES -->
+  <div class="homura_prod" id="saya">
+  </div>
+
+  <h4>No olvides calificar y comentar</h4>
+
+  <!-- ESPACIO PARA PUNTUAR Y ESCRIBIR COMENTARIO -->
+  <div class="containerComments">
+    <div class="post">
+      <div class="text">Gracias por tu recomendación :D</div>
+      <div class="edit">Editar</div>
+    </div>
+    <div class="star-widget">
+      <input type="radio" name="rate" id="rate-5" onclick="calificacion(5)">
+      <label for="rate-5" class="fas fa-star"></label>
+      <input type="radio" name="rate" id="rate-4" onclick="calificacion(4)">
+      <label for="rate-4" class="fas fa-star"></label>
+      <input type="radio" name="rate" id="rate-3" onclick="calificacion(3)">
+      <label for="rate-3" class="fas fa-star"> </label>
+      <input type="radio" name="rate" id="rate-2" onclick="calificacion(2)">
+      <label for="rate-2" class="fas fa-star"></label>
+      <input type="radio" name="rate" id="rate-1" onclick="calificacion(1)">
+      <label for="rate-1" class="fas fa-star"></label>
+      <form action="#">
+        <header></header>
+        <div class="textarea" id="comentador">
+          <textarea cols="30" placeholder="¿Tu opinión nos importa?...........Sí xD."></textarea>
+        </div>
+        <div class="btn">
+          <button class="btn btn-success green" type="submit"><i class="fa fa-share" onclick="califikeishon()"></i>
+            Comenta aquí</button>
+        </div>
+      </form>
     </div>
   </div>
+
+  <!-- ESTE SCRIPT DINAMIZA LA CAJA PARA ESCRIBIR EL COMENTARIO -->
+  <script>
+    const btn = document.querySelector("button");
+    const post = document.querySelector(".post");
+    const widget = document.querySelector(".star-widget");
+    const editBtn = document.querySelector(".edit");
+    btn.onclick = () => {
+      widget.style.display = "none";
+      post.style.display = "block";
+      editBtn.onclick = () => {
+        widget.style.display = "block";
+        post.style.display = "none";
+      }
+      return false;
+    }
+  </script>
+
+  <!-- CAJA DE COMENTARIOS -->
+  <div id="commentto">
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
