@@ -51,11 +51,14 @@
     <h2 id="kau"></h2>
     </hr>
   </div>
-
+  
 
 
   <!-- GALERIA DE IMÁGENES -->
   <div class="homura_prod" id="saya">
+  </div>
+  <h4>Los que eligieron este producto también recomiendan:</h4>
+  <div class="homura_rel" id="relationed">
   </div>
 
   <h4>No olvides calificar y comentar</h4>
@@ -67,23 +70,24 @@
       <div class="edit">Editar</div>
     </div>
     <div class="star-widget">
-      <input type="radio" name="rate" id="rate-5" onclick="calificacion(5)">
+      <input type="radio" name="rate" id="rate-5" value="5" onclick="calificacion(5)">
       <label for="rate-5" class="fas fa-star"></label>
-      <input type="radio" name="rate" id="rate-4" onclick="calificacion(4)">
+      <input type="radio" name="rate" id="rate-4" value="4" onclick="calificacion(4)">
       <label for="rate-4" class="fas fa-star"></label>
-      <input type="radio" name="rate" id="rate-3" onclick="calificacion(3)">
+      <input type="radio" name="rate" id="rate-3" value="3" onclick="calificacion(3)">
       <label for="rate-3" class="fas fa-star"> </label>
-      <input type="radio" name="rate" id="rate-2" onclick="calificacion(2)">
+      <input type="radio" name="rate" id="rate-2" value="2" onclick="calificacion(2)">
       <label for="rate-2" class="fas fa-star"></label>
-      <input type="radio" name="rate" id="rate-1" onclick="calificacion(1)">
+      <input type="radio" name="rate" id="rate-1" value="1" onclick="calificacion(1)">
       <label for="rate-1" class="fas fa-star"></label>
-      <form action="#">
+      <form method="POST">
         <header></header>
-        <div class="textarea" id="comentador">
-          <textarea cols="30" placeholder="¿Tu opinión nos importa?...........Sí xD."></textarea>
+        <div class="textarea" >
+          <textarea id="comentador" cols="30" placeholder="¿Tu opinión nos importa?...........Sí xD."></textarea>
         </div>
+
         <div class="btn">
-          <button class="btn btn-success green" type="submit"><i class="fa fa-share" onclick="califikeishon()"></i>
+          <button class="btn btn-success green" id="comentt" type="submit"><i class="fa fa-share"></i>
             Comenta aquí</button>
         </div>
       </form>

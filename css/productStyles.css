@@ -347,3 +347,10 @@ form .btn button:hover{
   background: #8c9eee;
 }
 
+.homura_rel {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  justify-content: center;
+  padding-bottom: 20px;
+  margin-left: 20px;}

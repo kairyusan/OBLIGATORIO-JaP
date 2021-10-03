@@ -1,27 +1,7 @@
-let producact = {};
-let produccomments = [];
+let producIn = {}; //DATA DE LOS PRODUCTOS
+var prod = {}; //DATA DE LOS PRODUCTOS RELACIONADOS
+let producComments = []; //PARA LOS COMENTARIOS
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
-document.addEventListener("DOMContentLoaded", function (e) {
-  getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-    if (resultObj.status === "ok") {
-      producact = resultObj.data;
-      showProdInfo(producact);
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function (e) {
-  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-    if (resultObj.status === "ok") {
-      produccomments = resultObj.data;
-      showProdComments(produccomments);
-    }
-  });
-});
 
 //  PARA MOSTRAR LOS PRODUCTOS
 function showProdInfo(prod) {
@@ -54,10 +34,10 @@ function calificacion(punt) {
   return estrellas;
 }
 
-function showProdComments(comments) {
+function showProdComments(producComments) {
   let commentsToAppend = "";
-  for (let i = 0; i < comments.length; i++) {
-    let comm = comments[i];
+  for (let i = 0; i < producComments.length; i++) {
+    let comm = producComments[i];
     let drawStars = calificacion(comm.score);
     commentsToAppend +=` 
     <div class="review-block">
@@ -75,39 +55,94 @@ function showProdComments(comments) {
   }
 }
 
+function calif(punt){
+  
+let comm = {}; //Creo una variable de objeto llamada "persona"
 
-//  PARA MOSTRAR EL COMENTARIO QUE YO REALIZO
-function califikeishon() {
-  let produccomments = [];
-  let comentario = {};
+let comentt = document.getElementById("comentador").value;
+if (comentt.trim() != "") {
+  let us = JSON.parse(sessionStorage.getItem("user")); //  PARA TOMAR EL USUARIO
+  let fecha = new Date();
+  comm.score = punt;
+  comm.description = comentt;
+  comm.user = us.nombre;
+  comm.dateTime = fecha;
 
-  let comentt = document.getElementById("comentador").value;
-  if (comentt.trim() != "") {
-    let us = JSON.parse(sessionStorage.getItem("user")); //  PARA TOMAR EL USUARIO
-    let fecha = new Date();
+  producComments.push(comm);
 
-    comentario.score = valor;
-    comentario.description = comentt;
-    comentario.user = us.nombre;
-    comentario.dateTime = fecha;
-
-    produccomments.push(comentario);
-
-    console.log(produccomments);
-
-    emptyComentt();
-
-    showProdComments(produccomments);
-  }
-}
+  showProdComments(producComments);
+}else{
+  alert("Ingresa un comentario por favor")
+};
+};
 
 
-//  PARA VACIAR EL CAMPO DE TEXTO Y VACIAR LAS ESTRELLAS EN CUESTIÓN
-function emptyComentt() {
-  document.getElementById("comentador").value = "";
-  document.getElementById("rate-5").checked=false;
-  document.getElementById("rate-4").checked=false;
-  document.getElementById("rate-3").checked=false;
-  document.getElementById("rate-2").checked=false;
-  document.getElementById("rate-1").checked=false;
-}
+
+
+
+
+
+
+
+
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      producIn = resultObj.data;
+      showProdInfo(producIn);
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      producComments = resultObj.data;
+      showProdComments(producComments);
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  getJSONData(PRODUCTS_URL).then(function (resultObj) {
+  if (resultObj.status === "ok") {
+    var prodd=resultObj.data; //VARIABLE CON EL ARRAY DE PRODUCTOS
+    var producRel=producIn.relatedProducts;
+    let prodRelAppend="";
+    let prodRel=document.getElementById("relationed");
+
+    producRel.forEach(function(e) {
+      let pRelacionado=prodd[e];
+
+      prodRelAppend += `<div class="card mb-4 box-shadow">
+      <img class="card-img-top" src="${pRelacionado.imgSrc}" onclick="aInfo()">
+      <div class="card-body">
+        <h5 class="card-number" onclick="aInfo()">${pRelacionado.name}</h5>
+        <p class="card-text">${pRelacionado.description}</p>
+        <div> <h5>${pRelacionado.cost} USD  </h5>
+        <p>${pRelacionado.soldCount} Vendidos </p>
+          </div>
+        </div>
+        
+      </div>
+    
+    
+  
+   
+      `
+    });
+
+    prodRel.innerHTML= prodRelAppend;
+  };
+  },)
+
+
+
+
+
+});
